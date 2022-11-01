@@ -49,9 +49,7 @@ const iterator = queryResponse.fields.dimensions[0].name;
 const grouping_dim = queryResponse.fields.dimensions[1].name;
 const plot_measure = queryResponse.fields.measures[0].name;
 
-// console.log(iterator)
-// console.log(grouping_dim)
-// console.log(plot_measure)
+
 
     data.forEach(function(d) {
       allData.push({
@@ -80,12 +78,12 @@ const output2 = () => {
 
 };
 
-  var it =  allData.map(function(newThing){
+  // var it =  allData.map(function(newThing){
 
-        //console.log(newThing.count)
-        return newThing.count;
 
-    })
+  //       return newThing.count;
+
+  //   })
 
 
 
@@ -95,7 +93,8 @@ const finalData = output2();
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]
 
-
+console.log(firstKey)
+console.log(lastKey)
 
     const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
     const hasOneMeasure = queryResponse.fields.measures.length === 1;
@@ -214,9 +213,9 @@ function nextYear() {
 
   var itemsWithNonZero = 0;
 
-  for (var i = 0; i < chart.data.length; i++) {
+  for (var i = 0; i < newData.length; i++) {
 
-   //console.log(newData.length, chart.data.length)
+   //console.log(chart.data[i]["name"])
 
     chart.data[i]["count"] = newData[i]["count"];
 

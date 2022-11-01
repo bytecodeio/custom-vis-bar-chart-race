@@ -76,17 +76,6 @@ const output2 = () => {
   return result;
 
 
-};
-
-  // var it =  allData.map(function(newThing){
-
-
-  //       return newThing.count;
-
-  //   })
-
-
-
 
 
 const finalData = output2();
@@ -99,7 +88,7 @@ console.log(lastKey)
     const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
     const hasOneMeasure = queryResponse.fields.measures.length === 1;
     const isMeasureNumeric = queryResponse.fields.measures[0]?.is_numeric;
-    //const isAlsoNumeric = queryResponse.fields.dimensions[1]?.is_numeric;
+
 
 
     if (!hasTwoDimensions || !hasOneMeasure || !isMeasureNumeric ) {
@@ -210,12 +199,12 @@ function nextYear() {
 
   var newData = finalData[year];
 
-
+console.log(newData)
   var itemsWithNonZero = 0;
 
   for (var i = 0; i < newData.length; i++) {
 
-   //console.log(chart.data[i]["name"])
+
 
     chart.data[i]["count"] = newData[i]["count"];
 

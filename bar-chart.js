@@ -78,24 +78,17 @@ const output2 = () => {
 
 };
 
-  // var it =  allData.map(function(newThing){
-
-
-  //       return newThing.count;
-
-  //   })
-
-
-
 
 
 const finalData = output2();
+
 console.log(finalData)
+
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]
 
-// console.log(firstKey)
-// console.log(lastKey)
+console.log(firstKey)
+console.log(lastKey)
 
     const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
     const hasOneMeasure = queryResponse.fields.measures.length === 1;
@@ -218,7 +211,7 @@ function nextYear() {
 
    //console.log(chart.data[i]["count"])
 
-   console.log(newData[i]["count"])
+   //console.log(newData[i]["count"])
 
     chart.data[i]["count"] = newData[i]["count"];
 

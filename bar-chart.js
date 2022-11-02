@@ -90,11 +90,12 @@ const output2 = () => {
 
 
 const finalData = output2();
+console.log(finalData)
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]
 
-console.log(firstKey)
-console.log(lastKey)
+// console.log(firstKey)
+// console.log(lastKey)
 
     const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
     const hasOneMeasure = queryResponse.fields.measures.length === 1;
@@ -210,7 +211,7 @@ function nextYear() {
 
   var newData = finalData[year];
 
-console.log(newData)
+// console.log(newData)
   var itemsWithNonZero = 0;
 
   for (var i = 0; i < chart.data.length; i++) {

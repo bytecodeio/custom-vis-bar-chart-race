@@ -62,6 +62,9 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
 
 
+console.log(allData)
+
+
 const output2 = () => {
 
   let result = {};

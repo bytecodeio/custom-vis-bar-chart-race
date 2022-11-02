@@ -216,7 +216,9 @@ function nextYear() {
 
   for (var i = 0; i < chart.data.length; i++) {
 
-   console.log(chart.data[i]["count"])
+   //console.log(chart.data[i]["count"])
+
+   console.log(newData[i]["count"])
 
     chart.data[i]["count"] = newData[i]["count"];
 

@@ -213,7 +213,7 @@ function nextYear() {
 console.log(newData)
   var itemsWithNonZero = 0;
 
-  for (var i = 0; i < newData.length; i++) {
+  for (var i = 0; i < chart.data.length; i++) {
 
    //console.log(chart.data[i]["name"])
 

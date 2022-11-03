@@ -85,7 +85,7 @@ const output2 = () => {
 
 const finalData = output2();
 
-console.log(finalData)
+console.log(finalData, "i am here")
 
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]

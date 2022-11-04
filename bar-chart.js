@@ -60,9 +60,9 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
     });
 
-console.log(data)
+console.log(data, "data")
 
-console.log(allData)
+console.log(allData, "allData")
 
 
 console.log(iterator)
@@ -92,7 +92,7 @@ const output2 = () => {
 
 const finalData = output2();
 
-console.log(finalData, "i am here")
+console.log(finalData, "finalData")
 
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]

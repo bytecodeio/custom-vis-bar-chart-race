@@ -74,21 +74,21 @@ console.log(data, "data")
 //console.log(plot_measure)
 
 
-// const output2 = () => {
+const output2 = () => {
 
-//   let result = {};
+  let result = {};
 
-//   allData.forEach((data) => {
-//     if (result[data.year]) {
-//       result[data.year] = [...result[data.year], data];
-//     } else {
-//       result[data.year] = [data];
-//     }
-//   });
-//   return result;
+  allData.forEach((data) => {
+    if (result[data.year]) {
+      result[data.year] = [...result[data.year], data];
+    } else {
+      result[data.year] = [data];
+    }
+  });
+  return result;
 
 
-// };
+};
 
 
 

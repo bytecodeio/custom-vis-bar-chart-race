@@ -64,35 +64,35 @@ console.log(data, "data")
     });
 
 
-console.log(allData, "second allData")
+//console.log(allData, "second allData")
 
 
-console.log(iterator)
+//console.log(iterator)
 
-console.log(grouping_dim)
+//console.log(grouping_dim)
 
-console.log(plot_measure)
-
-
-const output2 = () => {
-
-  let result = {};
-
-  allData.forEach((data) => {
-    if (result[data.year]) {
-      result[data.year] = [...result[data.year], data];
-    } else {
-      result[data.year] = [data];
-    }
-  });
-  return result;
+//console.log(plot_measure)
 
 
-};
+// const output2 = () => {
+
+//   let result = {};
+
+//   allData.forEach((data) => {
+//     if (result[data.year]) {
+//       result[data.year] = [...result[data.year], data];
+//     } else {
+//       result[data.year] = [data];
+//     }
+//   });
+//   return result;
+
+
+// };
 
 
 
-const finalData = output2();
+const finalData = allData;
 
 console.log(finalData, "finalData")
 

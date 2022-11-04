@@ -65,6 +65,13 @@ console.log(data)
 console.log(allData)
 
 
+console.log(iterator)
+
+console.log(grouping_dim)
+
+console.log(plot_measure)
+
+
 const output2 = () => {
 
   let result = {};

@@ -44,7 +44,7 @@ element.innerHTML =  '<div id="chartdiv" style="width: 100%;height:500px;"></div
 
 const allData = []
 
-console.log(data)
+console.log(queryResponse)
 
 const grouping_dim = queryResponse.fields.dimensions[1].name;
 const iterator = queryResponse.fields.dimensions[0].name;

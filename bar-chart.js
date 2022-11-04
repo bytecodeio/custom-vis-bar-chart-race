@@ -50,9 +50,7 @@ const grouping_dim = queryResponse.fields.dimensions[1].name;
 const plot_measure = queryResponse.fields.measures[0].name;
 
 
-console.log(allData, "first allData")
 
-console.log(data, "data")
 
     data.forEach(function(d) {
       allData.push({
@@ -64,7 +62,7 @@ console.log(data, "data")
     });
 
 
-//console.log(allData, "second allData")
+console.log(allData, "first allData")
 
 
 //console.log(iterator)
@@ -91,6 +89,7 @@ const output2 = () => {
 };
 
 
+console.log(allData, "second allData")
 
 const finalData = allData;
 

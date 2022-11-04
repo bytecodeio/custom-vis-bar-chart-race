@@ -83,7 +83,7 @@ const output2 = () => {
       result[data.year] = [data];
     }
 
-      console.log(data.year[0])
+
   });
   return result;
 

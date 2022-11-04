@@ -45,8 +45,10 @@ element.innerHTML =  '<div id="chartdiv" style="width: 100%;height:500px;"></div
 const allData = []
 
 
-const iterator = queryResponse.fields.dimensions[0].name;
+
 const grouping_dim = queryResponse.fields.dimensions[1].name;
+const iterator = queryResponse.fields.dimensions[0].name;
+
 const plot_measure = queryResponse.fields.measures[0].name;
 
 
@@ -54,9 +56,9 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
     data.forEach(function(d) {
       allData.push({
-        year: d[iterator]["value"],
-        name: d[grouping_dim]["value"],
-        count: d[plot_measure]["value"]
+        year: d[grouping_dim]["value"],
+        name: d[iterator]["value"],
+        count:d[plot_measure]["value"]
       });
 
     });

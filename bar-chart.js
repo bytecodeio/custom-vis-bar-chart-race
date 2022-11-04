@@ -65,11 +65,11 @@ const plot_measure = queryResponse.fields.measures[0].name;
 console.log(allData, "first allData")
 
 
-//console.log(iterator)
+console.log(iterator)
 
-//console.log(grouping_dim)
+console.log(grouping_dim)
 
-//console.log(plot_measure)
+console.log(plot_measure)
 
 
 const output2 = () => {

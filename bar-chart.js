@@ -60,7 +60,7 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
     });
 
-
+console.log(data)
 
 console.log(allData)
 

@@ -92,7 +92,7 @@ const output2 = () => {
 console.log(allData, "second allData")
 
 
-console.log(output2, "output2")
+console.log(output2(), "output2")
 
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]

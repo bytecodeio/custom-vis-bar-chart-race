@@ -56,9 +56,9 @@ console.log(data, "data")
 
     data.forEach(function(d) {
       allData.push({
-        year: d[iterator],
-        name: d[grouping_dim],
-        count: d[plot_measure]
+        year: d[iterator]["value"],
+        name: d[grouping_dim]["value"],
+        count: d[plot_measure]["value"]
       });
 
     });

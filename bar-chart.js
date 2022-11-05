@@ -46,13 +46,13 @@ const allData = []
 
 console.log(queryResponse)
 
+//define values
+
 const grouping_dim = queryResponse.fields.dimensions[1].name;
 const iterator = queryResponse.fields.dimensions[0].name;
-
 const plot_measure = queryResponse.fields.measures[0].name;
 
-
-
+//push values
 
     data.forEach(function(d) {
       allData.push({
@@ -73,7 +73,7 @@ console.log(grouping_dim)
 
 console.log(plot_measure)
 
-
+//reformat json
 const output2 = () => {
 
   let result = {};
@@ -85,10 +85,8 @@ const output2 = () => {
       result[data.year] = [data];
     }
 
-
   });
   return result;
-
 
 };
 
@@ -98,8 +96,10 @@ console.log(allData, "second allData")
 
 console.log(output2(), "output2")
 
+
 const finalData = output2();
 
+//grab first and last key from reformatted json
 
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]
@@ -107,11 +107,15 @@ const firstKey = Object.keys(finalData)[0]
 console.log(firstKey)
 console.log(lastKey)
 
+
+//define conditions of data
+
     const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
     const hasOneMeasure = queryResponse.fields.measures.length === 1;
     const isMeasureNumeric = queryResponse.fields.measures[0]?.is_numeric;
-    //const isAlsoNumeric = queryResponse.fields.dimensions[1]?.is_numeric;
 
+
+//write error for unmet conditions
 
     if (!hasTwoDimensions || !hasOneMeasure || !isMeasureNumeric ) {
       this.addError({
@@ -120,6 +124,10 @@ console.log(lastKey)
       });
       return;
     }
+
+
+
+//amcharts package
 
 am4core.useTheme(am4themes_animated);
 
@@ -189,6 +197,9 @@ series.columns.template.adapter.add("fill", function (fill, target) {
 });
 
 
+//define iterative value
+
+
 var year = firstKey;
 
 
@@ -209,6 +220,8 @@ function stop() {
   }
 }
 
+//increment iterative value
+
 function nextYear() {
   year++;
 
@@ -221,14 +234,11 @@ function nextYear() {
 
   var newData = finalData[year];
 
-// console.log(newData)
+
   var itemsWithNonZero = 0;
 
   for (var i = 0; i < chart.data.length; i++) {
 
-   //console.log(chart.data[i]["count"])
-
-   //console.log(newData[i]["count"])
 
     chart.data[i]["count"] = newData[i]["count"];
 

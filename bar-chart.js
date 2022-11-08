@@ -48,8 +48,8 @@ console.log(queryResponse)
 
 //define values
 
-const grouping_dim = queryResponse.fields.dimensions[1].name;
-const iterator = queryResponse.fields.dimensions[0].name;
+const grouping_dim = queryResponse.fields.dimensions[0].name;
+const iterator = queryResponse.fields.dimensions[1].name;
 const plot_measure = queryResponse.fields.measures[0].name;
 
 //push values

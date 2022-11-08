@@ -235,25 +235,28 @@ var year = firstKey;
 label.text = year.toString();
 
 
-  function propertyIterator(obj) {
-    const keys = Object.keys(obj)
-    const values = Object.values(obj)
-    const length = keys.length
-    let nextIndex = 0
-    return {
-      next: function() {
-        const value = {
-          key: keys[nextIndex],
-          value: values[nextIndex]
-        }
-        nextIndex++
-        return { current: value}
+    function propertyIterator(obj) {
+        const keys = Object.keys(obj);
+        const values = Object.values(obj);
+        const length = keys.length;
+        let nextIndex = 0;
+        return {
+          next: function () {
+            if (nextIndex !== keys.length - 1) {
+              nextIndex++;
+            } else {
+              nextIndex = 0;
+            }
+            const value = {
+              key: keys[nextIndex],
+              value: values[nextIndex],
+            };
+            return { current: value };
+          },
+        };
       }
-    }
-  }
 
-  const incrementObj = propertyIterator(finalData)
-
+      const incrementObj = propertyIterator(finalData);
 
 
 
@@ -304,14 +307,10 @@ function nextYear() {
 
   }
   if(isNaN(year)){
-  year = incrementObj.next().current.key
-   console.log(year)
-   console.log(firstKey)
-   console.log(lastKey)
 
-    if (year > lastKey) {
-      year = firstKey;
-    }
+
+     year = incrementObj.next().current.key;
+     console.log(year);
 
 
     var newData = finalData[year];

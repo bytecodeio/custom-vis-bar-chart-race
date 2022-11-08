@@ -63,15 +63,30 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
     });
 
+     if(!isNaN(grouping_dim)){
 
-console.log(allData, "first allData")
+       console.log("this is a number")
 
 
-console.log(iterator)
+     }
 
-console.log(grouping_dim)
+   if(isNaN(grouping_dim)){
 
-console.log(plot_measure)
+
+       console.log("this is not a number")
+
+
+     }
+
+
+// console.log(allData, "first allData")
+
+
+// console.log(iterator)
+
+// console.log(grouping_dim)
+
+// console.log(plot_measure)
 
 //reformat json
 const output2 = () => {

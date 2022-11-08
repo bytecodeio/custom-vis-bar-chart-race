@@ -56,8 +56,8 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
     data.forEach(function(d) {
       allData.push({
-        year: d[iterator]["value"],
-        name: d[grouping_dim]["value"],
+        year: d[grouping_dim]["value"],
+        name: d[iterator]["value"],
         count:d[plot_measure]["value"]
       });
 

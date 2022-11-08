@@ -78,6 +78,21 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
      }
 
+     if(!isNaN(iterator)){
+
+       console.log("this is a number")
+
+
+     }
+
+   if(isNaN(iterator)){
+
+
+       console.log("this is not a number")
+
+
+     }
+
 
 // console.log(allData, "first allData")
 

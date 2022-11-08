@@ -202,8 +202,35 @@ series.columns.template.adapter.add("fill", function (fill, target) {
 
 var year = firstKey;
 
-
 label.text = year.toString();
+
+
+  function propertyIterator(obj) {
+    const keys = Object.keys(obj)
+    const values = Object.values(obj)
+    const length = keys.length
+    let nextIndex = 0
+    return {
+      next: function() {
+        const value = {
+          key: keys[nextIndex],
+          value: values[nextIndex]
+        }
+        nextIndex++
+        return { current: value}
+      }
+    }
+  }
+
+  const incrementObj = propertyIterator(finalData)
+
+
+
+
+
+
+
+
 
 var interval;
 
@@ -223,32 +250,62 @@ function stop() {
 //increment iterative value
 
 function nextYear() {
-  year++;
 
 
-  if (year > lastKey) {
-    year = firstKey;
-  }
+  if(!isNaN(year)){
 
 
-
-  var newData = finalData[year];
-
-
-  var itemsWithNonZero = 0;
-
-  for (var i = 0; i < chart.data.length; i++) {
+    year++
 
 
-    chart.data[i]["count"] = newData[i]["count"];
+      if (year > lastKey) {
+        year = firstKey;
+      }
 
+    var newData = finalData[year];
+    console.log(newData)
+    var itemsWithNonZero = 0;
 
+    for (var i = 0; i < chart.data.length; i++) {
 
+      chart.data[i]["count"] = newData[i]["count"];
 
-    if (chart.data[i]["count"] > 0) {
-      itemsWithNonZero++;
+      if (chart.data[i]["count"] > 0) {
+        itemsWithNonZero++;
+      }
     }
+
+
   }
+  if(isNaN(year)){
+  year = incrementObj.next().current.key
+   console.log(year)
+   console.log(firstKey)
+   console.log(lastKey)
+
+    if (year > lastKey) {
+      year = firstKey;
+    }
+
+
+    var newData = finalData[year];
+    console.log(finalData[year])
+    var itemsWithNonZero = 0;
+
+    for (var i = 0; i < newData.length; i++) {
+
+
+      chart.data[i]["count"] = newData[i]["count"];
+
+      if (chart.data[i]["count"] > 0) {
+        itemsWithNonZero++;
+      }
+    }
+
+
+  }
+
+
 
   if (itemsWithNonZero > 25) {
     itemsWithNonZero = 25;

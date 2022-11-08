@@ -103,7 +103,8 @@ console.log(grouping_dim)
 
 console.log(plot_measure)
 
-//reformat json
+//reformat object
+
 const output2 = () => {
 
   let result = {};
@@ -227,13 +228,15 @@ series.columns.template.adapter.add("fill", function (fill, target) {
 });
 
 
-//define iterative value
+
 
 
 var year = firstKey;
 
 label.text = year.toString();
 
+
+//this function will be for incrementing through next key in object until you get to the last key and then return to first key
 
     function propertyIterator(obj) {
         const keys = Object.keys(obj);
@@ -256,7 +259,7 @@ label.text = year.toString();
         };
       }
 
-      const incrementObj = propertyIterator(finalData);
+    const incrementObj = propertyIterator(finalData);
 
 
 
@@ -276,10 +279,11 @@ function stop() {
   }
 }
 
-//increment iterative value
+
 
 function nextYear() {
 
+//increment value if it is a number
 
   if(!isNaN(year)){
 
@@ -306,6 +310,9 @@ function nextYear() {
 
 
   }
+
+//increment  value if it is not a number
+
   if(isNaN(year)){
 
 

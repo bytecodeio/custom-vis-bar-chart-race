@@ -71,6 +71,25 @@ element.append(visContainer)
 const allData = []
 
 
+
+//define conditions of data
+
+    const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
+    const hasOneMeasure = queryResponse.fields.measures.length === 1;
+    const isMeasureNumeric = queryResponse.fields.measures[0]?.is_numeric;
+
+
+//write error for unmet conditions
+
+    if (!hasTwoDimensions || !hasOneMeasure || !isMeasureNumeric ) {
+
+      element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em'>Incompatible Data. This chart requires two dimensions and one numerical measure.</p>";
+
+    }
+
+
+
+
 //define values
 
 const grouping_dim = queryResponse.fields.dimensions[0].name;
@@ -136,24 +155,6 @@ const finalData = output2();
 
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]
-
-
-//define conditions of data
-
-    const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
-    const hasOneMeasure = queryResponse.fields.measures.length === 1;
-    const isMeasureNumeric = queryResponse.fields.measures[0]?.is_numeric;
-
-
-//write error for unmet conditions
-
-    if (!hasTwoDimensions || !hasOneMeasure || !isMeasureNumeric ) {
-      this.addError({
-        title: "Incompatible Data",
-        message: "This chart requires two dimension and one numerical measure.",
-      });
-      return;
-    }
 
 
 

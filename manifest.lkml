@@ -37,7 +37,12 @@ application: dashboard-navigation {
 visualization: {
   label: "liz custom viz"
   url: "https://localhost:8080/bundle.js"
-  # file: "bundle.js"
+
   id :  "elizabeth"
+  dependencies: [
+    "https://www.amcharts.com/lib/4/core.js",
+    "https://www.amcharts.com/lib/4/charts.js",
+    "https://www.amcharts.com/lib/4/themes/animated.js"
+  ]
 
 }

@@ -40,6 +40,7 @@ visualization: {
 
   id :  "elizabeth"
   dependencies: [
+    "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",
     "https://www.amcharts.com/lib/4/core.js",
     "https://www.amcharts.com/lib/4/charts.js",
     "https://www.amcharts.com/lib/4/themes/animated.js"

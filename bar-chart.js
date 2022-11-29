@@ -39,12 +39,37 @@ create: function (element, config) {},
     this.trigger("registerOptions", updatedOptions);
 
 
+    element.innerHTML = "";
+    element.innerHTML = `
+      <style>
+       @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-element.innerHTML =  '<div id="chartdiv" style="width: 100%;height:500px;"></div>';
+         body{
+          font-family: 'Open Sans',serif;
+          font-weight:bold
+         }
+        #chartdiv {
+          height: 500px;
+          width: 100%;
+
+        }
+
+        [aria-labelledby]{
+          display:none
+        }
+
+      </style>
+    `;
+
+
+var visContainer = document.createElement('div');
+visContainer.setAttribute("id", "chartdiv");
+
+
+element.append(visContainer)
 
 const allData = []
 
-console.log(queryResponse)
 
 //define values
 
@@ -54,67 +79,49 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
 //push values
 
+
     data.forEach(function(d) {
+
+
       allData.push({
         year: d[grouping_dim]["value"],
         name: d[iterator]["value"],
         count:d[plot_measure]["value"]
       });
 
+
+
     });
 
-     if(!isNaN(grouping_dim)){
 
-       console.log("this is a number")
-
-
-     }
-
-   if(isNaN(grouping_dim)){
-
-
-       console.log("this is not a number")
-
-
-     }
-
-     if(!isNaN(iterator)){
-
-       console.log("this is a number")
-
-
-     }
-
-   if(isNaN(iterator)){
-
-
-       console.log("this is not a number")
-
-
-     }
-
-
-console.log(allData, "first allData")
-
-
-console.log(iterator)
-
-console.log(grouping_dim)
-
-console.log(plot_measure)
+var firstIterator = allData[0].name
 
 //reformat object
-
 const output2 = () => {
 
   let result = {};
 
   allData.forEach((data) => {
+
+
+  if(!isNaN(firstIterator)){
+
+    if (result[data.name]) {
+      result[data.name] = [...result[data.name], data];
+    } else {
+      result[data.name] = [data];
+    }
+
+  }
+
+  if(isNaN(firstIterator)){
+
     if (result[data.year]) {
       result[data.year] = [...result[data.year], data];
     } else {
       result[data.year] = [data];
     }
+  }
 
   });
   return result;
@@ -122,21 +129,13 @@ const output2 = () => {
 };
 
 
-console.log(allData, "second allData")
-
-
-console.log(output2(), "output2")
-
-
 const finalData = output2();
+
 
 //grab first and last key from reformatted json
 
 const lastKey = Object.keys(finalData)[Object.keys(finalData).length - 1]
 const firstKey = Object.keys(finalData)[0]
-
-console.log(firstKey)
-console.log(lastKey)
 
 
 //define conditions of data
@@ -151,7 +150,7 @@ console.log(lastKey)
     if (!hasTwoDimensions || !hasOneMeasure || !isMeasureNumeric ) {
       this.addError({
         title: "Incompatible Data",
-        message: "This chart requires one dimension and one numerical measure.",
+        message: "This chart requires two dimension and one numerical measure.",
       });
       return;
     }
@@ -171,8 +170,8 @@ label.x = am4core.percent(97);
 label.y = am4core.percent(95);
 label.horizontalCenter = "right";
 label.verticalCenter = "middle";
-label.dx = -15;
-label.fontSize = 50;
+label.dx = 25;
+label.fontSize = 35;
 
 var playButton = chart.plotContainer.createChild(am4core.PlayButton);
 playButton.x = am4core.percent(97);
@@ -192,8 +191,14 @@ var stepDuration = 4000;
 var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.renderer.grid.template.location = 0;
 
+if(!isNaN(firstIterator)){
+categoryAxis.dataFields.category = "year";
+}
 
+if(isNaN(firstIterator)){
 categoryAxis.dataFields.category = "name";
+}
+
 categoryAxis.renderer.minGridDistance = 1;
 categoryAxis.renderer.inversed = true;
 categoryAxis.renderer.grid.template.disabled = false;
@@ -205,7 +210,16 @@ valueAxis.rangeChangeDuration = stepDuration;
 valueAxis.extraMax = 0.1;
 
 var series = chart.series.push(new am4charts.ColumnSeries());
+
+if(!isNaN(firstIterator)){
+series.dataFields.categoryY = "year";
+
+}
+
+if(isNaN(firstIterator)){
 series.dataFields.categoryY = "name";
+
+}
 series.dataFields.valueX = "count";
 series.tooltipText = "{valueX.value}";
 series.columns.template.strokeOpacity = 0;
@@ -296,7 +310,7 @@ function nextYear() {
       }
 
     var newData = finalData[year];
-    console.log(newData)
+    // console.log(newData)
     var itemsWithNonZero = 0;
 
     for (var i = 0; i < chart.data.length; i++) {
@@ -317,11 +331,11 @@ function nextYear() {
 
 
      year = incrementObj.next().current.key;
-     console.log(year);
+     // console.log(year);
 
 
     var newData = finalData[year];
-    console.log(finalData[year])
+    // console.log(finalData[year])
     var itemsWithNonZero = 0;
 
     for (var i = 0; i < newData.length; i++) {

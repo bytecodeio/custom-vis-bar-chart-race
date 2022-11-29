@@ -35,7 +35,7 @@ application: dashboard-navigation {
 
 
 visualization: {
-  label: "Elizabeth custom viz"
+  label: "liz custom viz"
   url: "https://localhost:8080/bundle.js"
   # file: "bundle.js"
   id :  "elizabeth"

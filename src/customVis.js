@@ -66,13 +66,13 @@ const plot_measure = queryResponse.fields.measures[0].name;
 
 if (iterator.length > 40 && !isNaN(iterator)) {
 
-  element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. There are too many values in your dimensions. Please limit them.</p>";
+  element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. There are too many values in your dimensions. Please limit them so there are 40 or less on the Y axis.</p>";
 
 }
 
 if (grouping_dim.length > 40 && isNaN(grouping_dim)) {
 
-  element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. There are too many values in your dimensions. Please limit them.</p>";
+  element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. There are too many values in your dimensions. Please limit them so there are 40 or less on the Y axis.</p>";
 
 }
 
@@ -103,8 +103,13 @@ const output2 = () => {
   if(!isNaN(firstIterator)){
 
     if (result[data.name]) {
+
+       // checks to see if there's an array for that value yet. If there is, the spread operator copies the existing array and adds a new entry to that array
+
       result[data.name] = [...result[data.name], data];
     } else {
+
+      //if there's no array yet for that value, this simply assigns the data to a new value key and adds it to the result object
       result[data.name] = [data];
     }
 

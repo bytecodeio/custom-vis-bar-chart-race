@@ -8,4 +8,4 @@ Bar Chart Race using Amchart.js:
 
 To run locally, download the repo, then npm i, npm run build, and npm start.
 
-You should drag and drop the the bundle.js file that is created in your dist folder after you run the build to your file browswer.
+You should drag and drop the the bundle.js file that is created in your dist folder after you run the build to your file browser.

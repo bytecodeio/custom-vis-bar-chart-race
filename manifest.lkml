@@ -24,7 +24,7 @@ application: dashboard-navigation {
   }
 }
 
-
+# running code locally
 visualization: {
   label: "liz custom viz"
   url: "https://localhost:8080/bundle.js"

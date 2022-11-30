@@ -16,8 +16,10 @@ create: function (element, config) {},
           font-weight:bold
          }
         #chartdiv {
-          height: 500px;
+          height:100%;
+          min-height: 500px;
           width: 100%;
+
         }
 
       </style>
@@ -39,16 +41,17 @@ const allData = []
 
     const hasTwoDimensions = queryResponse.fields.dimensions.length === 2;
     const hasOneMeasure = queryResponse.fields.measures.length === 1;
-    const isMeasureNumeric = queryResponse.fields.measures[0]?.is_numeric;
+    // const isMeasureNumeric = queryResponse.fields.measures[0]?.is_numeric;
 
 
 //write error for unmet conditions
 
-    if (!hasTwoDimensions || !hasOneMeasure || !isMeasureNumeric ) {
+    if (!hasTwoDimensions || !hasOneMeasure ) {
 
-      element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. This chart requires <em>two dimensions</em> and <em>one numerical measure</em>.<br>For example, year, name, and count.</p>";
+      element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. This chart requires <em>two dimensions</em> and <em>one measure</em>.<br>For example, year, name, and count.</p>";
 
     }
+
 
 
 //define values
@@ -56,6 +59,22 @@ const allData = []
 const grouping_dim = queryResponse.fields.dimensions[0].name;
 const iterator = queryResponse.fields.dimensions[1].name;
 const plot_measure = queryResponse.fields.measures[0].name;
+
+
+
+//write error for too many values on Y axis
+
+if (iterator.length > 40 && !isNaN(iterator)) {
+
+  element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. There are too many values in your dimensions. Please limit them.</p>";
+
+}
+
+if (grouping_dim.length > 40 && isNaN(grouping_dim)) {
+
+  element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. There are too many values in your dimensions. Please limit them.</p>";
+
+}
 
 
 //push values
@@ -158,6 +177,8 @@ if(isNaN(firstIterator)){
 categoryAxis.dataFields.category = "name";
 }
 
+
+
 categoryAxis.renderer.minGridDistance = 1;
 categoryAxis.renderer.inversed = true;
 categoryAxis.renderer.grid.template.disabled = false;
@@ -179,6 +200,9 @@ if(isNaN(firstIterator)){
 series.dataFields.categoryY = "name";
 
 }
+
+
+
 series.dataFields.valueX = "count";
 series.tooltipText = "{valueX.value}";
 series.columns.template.strokeOpacity = 0;

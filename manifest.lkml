@@ -1,13 +1,4 @@
-# project_name: "amcharts-custom-bar-chart-race"
-
-
-
-# # Use local_dependency: To enable referencing of another project
-# # on this instance with include: statements
-#
-# local_dependency: {
-#   project: "name_of_other_project"
-# }
+project_name: "amcharts-custom-bar-chart-race"
 
 
 
@@ -19,7 +10,7 @@ visualization: {
     "https://www.amcharts.com/lib/4/charts.js",
     "https://www.amcharts.com/lib/4/themes/animated.js"
   ]
-  file: "bar-chart.js"
+  file: "src/customVis.js"
 }
 
 

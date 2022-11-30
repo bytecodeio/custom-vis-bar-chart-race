@@ -1,1 +1,0 @@
-looker.plugins.visualizations.add({create:function(n,e){},updateAsync:function(n,e,i,t,a,d){e.innerHTML="";var o=document.createElement("div");o.innerText="Custom vis!",e.appendChild(o),d()}});

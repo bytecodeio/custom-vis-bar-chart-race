@@ -77,6 +77,15 @@ if (grouping_dim.length > 40 && isNaN(grouping_dim)) {
 }
 
 
+if (grouping_dim.length > 40 && isNaN(grouping_dim) && isNaN(iterator)) {
+
+  element.innerHTML = "<p style='text-align:center;font-size:1.25em;padding-top:2em;font-family: 'Open Sans',serif;'>Incompatible Data. There are too many values in your dimensions. Please limit them so there are 40 or less on the Y axis.</p>";
+
+}
+
+
+
+
 //push values
 
     data.forEach(function(d) {

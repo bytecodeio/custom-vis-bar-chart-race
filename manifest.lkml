@@ -25,9 +25,14 @@ visualization: {
 application: react1 {
   label: "react1"
   url: "http://localhost:8080/bundle.js"
-  # file: "dashboard_nav_bundle.js"
   entitlements: {
-    use_embeds: yes
-    core_api_methods: ["folder", "folder_dashboards", "me", "user_roles"]
+    local_storage: no
+    navigation: no
+    new_window: no
+    allow_forms: no
+    allow_same_origin: no
+    core_api_methods: ["all_looks", "run_look"]
+    external_api_urls: []
+    oauth2_urls: []
   }
 }

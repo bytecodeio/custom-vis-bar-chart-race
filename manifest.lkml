@@ -22,8 +22,8 @@ visualization: {
 
 
 
-application: extension-tabbed-dashboard {
-  label: "extension-tabbed-dashboard"
+application: react1 {
+  label: "react1"
   url: "http://localhost:8080/bundle.js"
   # file: "dashboard_nav_bundle.js"
   entitlements: {

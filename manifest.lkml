@@ -33,19 +33,11 @@ visualization: {
 
 
 
-visualization: {
-  label: "react-heroku"
-  url: "https://localhost:8080/bundle.js"
-  id : "react-heroku"
-  # file: "dashboard_nav_bundle.js"
-
-}
-
 
 
 application: dashboard-navigation {
   label: "Dashboard Navigation"
-  url: "http://localhost:8080/dashboard_nav_bundle.js"
+  url: "http://localhost:8080/bundle.js"
   # file: "dashboard_nav_bundle.js"
   entitlements: {
     use_embeds: yes

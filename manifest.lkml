@@ -21,6 +21,7 @@ visualization: {
 
 
 
+
 application: dashboard-navigation {
   label: "Dashboard Navigation"
   url: "http://localhost:8080/bundle.js"

@@ -1,4 +1,4 @@
-Bar Chart Race using Amchart.js:
+Open source- Bar Chart Race using Amchart.js:
 
 <a href="https://www.amcharts.com/">https://www.amcharts.com</a>
 
@@ -8,4 +8,24 @@ Bar Chart Race using Amchart.js:
 
 To run locally, download the repo, then npm i, npm run build, and npm start.
 
-You should drag and drop the the bundle.js file that is created in your dist folder after you run the build to your file browser.
+Add the appropriate parameters to your manifest file in Looker. Something like this:
+
+project_name: "custom-bar-drag-and-drop"
+
+
+
+visualization: {
+  id: "custom-bar-drag-and-drop"
+  label: "Drag and Drop amCharts"
+  url: "https://localhost:8080/bundle.js"
+
+  dependencies: [
+    "https://www.amcharts.com/lib/4/core.js",
+    "https://www.amcharts.com/lib/4/charts.js",
+    "https://www.amcharts.com/lib/4/themes/animated.js"
+  ]
+
+}
+
+
+Then commit and deploy changes to see the visual displayed in Looker visualization options.

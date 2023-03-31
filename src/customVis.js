@@ -30,7 +30,7 @@ var visContainer = document.createElement('div');
 visContainer.setAttribute("id", "chartdiv");
 element.append(visContainer)
 
-am4core.addLicense("ch-custom-attribution");
+//am4core.addLicense("ch-custom-attribution");
 
 
 const allData = []

@@ -10,13 +10,16 @@ To run locally, download the repo, then npm i, npm run build, and npm start.
 
 Add the appropriate parameters to your manifest file in Looker. Something like this:
 
-project_name: "custom-bar-drag-and-drop"
+
+
+
+project_name: "amcharts-custom-bar-chart-race"
 
 
 
 visualization: {
-  id: "custom-bar-drag-and-drop"
-  label: "Drag and Drop amCharts"
+  id: "bar-chart-race-amcharts"
+  label: "Bar Chart Race amCharts"
   url: "https://localhost:8080/bundle.js"
 
   dependencies: [
